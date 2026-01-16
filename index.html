@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Speak Like a Brazilian - Master Portuguese</title>
+    <meta name="description" content="Stop sounding like a textbook. Learn real Brazilian Portuguese with our interactive method.">
+    
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0a1f1c">
+    <link rel="apple-touch-icon" href="assets/icon-192.png">
+
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="app-header">
+        <div class="streak-container">
+            <span class="fire-icon">🔥</span>
+            <span id="streak-counter">Day 1</span>
+        </div>
+        <div class="actions">
+            <button id="install-btn" class="btn-icon hidden" aria-label="Install App">
+                ⬇️ Install
+            </button>
+            <button id="theme-toggle" class="btn-icon" aria-label="Toggle Theme">
+                ☀️
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <span class="badge">🇧🇷 Best Seller</span>
+            <h1>Don't just speak Portuguese.<br><span class="highlight">Speak like a Brazilian.</span></h1>
+            <p class="subheadline">Stop sounding like a robot. Learn the slang, rhythm, and soul of Brazil for the price of a coffee.</p>
+            
+            <div class="cta-group">
+                <a href="#buy-link" class="btn-primary pulsate">Get eBook - $4.99</a>
+                <p class="guarantee-text">30-day money-back guarantee</p>
+            </div>
+        </section>
+
+        <section class="game-section">
+            <div class="game-card">
+                <div class="game-header">
+                    <h3>Quick Training</h3>
+                    <span id="score-display">Score: 0</span>
+                </div>
+                
+                <div id="game-container">
+                    <div class="progress-bar">
+                        <div id="progress-fill"></div>
+                    </div>
+                    
+                    <div class="question-box">
+                        <span class="lang-label">English</span>
+                        <h2 id="question-text">Water</h2>
+                    </div>
+
+                    <div class="options-grid" id="options-container">
+                        </div>
+                </div>
+
+                <div id="game-upsell" class="hidden">
+                    <h3>You're a natural! 🇧🇷</h3>
+                    <p>Unlock 1,000+ phrases and audio guides in the full eBook.</p>
+                    <a href="#buy-link" class="btn-secondary">Unlock Full Access</a>
+                </div>
+            </div>
+            <p class="game-note">Practice logic: <span class="highlight-text">Spaced Repetition System</span></p>
+        </section>
+
+        <section class="benefits">
+            <h2>Why this method works</h2>
+            <div class="benefit-grid">
+                <div class="benefit-item">
+                    <div class="icon">🚀</div>
+                    <h3>Instant Fluency</h3>
+                    <p>Learn the 20% of words used 80% of the time.</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="icon">😎</div>
+                    <h3>Street Smart</h3>
+                    <p>Understand slang like "Beleza", "Mano", and "Gente".</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="icon">📱</div>
+                    <h3>Mobile First</h3>
+                    <p>Read and practice anywhere, anytime on your phone.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="social-proof">
+            <h2>Community Love</h2>
+            <div class="testimonial-scroller">
+                <div class="testimonial-card">
+                    <p>"I finally understood what my Brazilian girlfriend was saying to her friends. 10/10."</p>
+                    <div class="author">- Mike T., California</div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Better than Duolingo for actually sounding human. The slang section is gold."</p>
+                    <div class="author">- Sarah J., London</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="final-offer" id="buy-link">
+            <div class="offer-card">
+                <img src="assets/ebook-cover.png" alt="Book Cover" class="book-img">
+                <h2>Speak Like a Brazilian</h2>
+                <div class="price">
+                    <span class="old-price">$19.99</span>
+                    <span class="new-price">$4.99</span>
+                </div>
+                <ul class="check-list">
+                    <li>✅ PDF + EPUB Formats</li>
+                    <li>✅ 500+ Audio Files Included</li>
+                    <li>✅ Lifetime Updates</li>
+                </ul>
+                <button class="btn-primary btn-block">Buy Now & Download</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Speak Like a Brazilian. All rights reserved.</p>
+        <div class="links">
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Inline Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(reg => console.log('SW registered'))
+                    .catch(err => console.log('SW failed', err));
+            });
+        }
+    </script>
+</body>
+</html>
