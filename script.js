@@ -2,31 +2,14 @@
  * Core Logic: Game, PWA, Persistence, Theme
  */
 
-// --- 1. GAME DATA (50 Questions) ---
+// --- 1. GAME DATA (Updated with your full list) ---
 const questions = [
-    // Basics (originais)
+    // Basics
     { q: "Water", a: "Água", w: "Suco" },
     { q: "Beer", a: "Cerveja", w: "Vinho" },
     { q: "Beach", a: "Praia", w: "Campo" },
     { q: "Thanks", a: "Obrigado", w: "Por favor" },
     { q: "Hello", a: "Olá", w: "Adeus" },
-    { q: "Good morning", a: "Bom dia", w: "Boa noite" },
-    { q: "Yes", a: "Sim", w: "Não" },
-    { q: "Maybe", a: "Talvez", w: "Nunca" },
-    { q: "Girl", a: "Menina", w: "Menino" },
-    { q: "Boy", a: "Menino", w: "Gato" },
-    { q: "Dog", a: "Cachorro", w: "Pássaro" },
-    { q: "Cat", a: "Gato", w: "Peixe" },
-    { q: "House", a: "Casa", w: "Prédio" },
-    { q: "Car", a: "Carro", w: "Ônibus" },
-    { q: "Food", a: "Comida", w: "Bebida" },
-    { q: "Coffee", a: "Café", w: "Leite" },
-    { q: "Party", a: "Festa", w: "Reunião" },
-    { q: "Friend", a: "Amigo", w: "Inimigo" },
-    { q: "Money", a: "Dinheiro", w: "Cartão" },
-    { q: "Kiss", a: "Beijo", w: "Abraço" },
-
-    // Basics (novos - apenas palavras, bem do dia a dia BR)
     { q: "Lunchbox", a: "Marmita", w: "Panela" },
     { q: "Flip-flops", a: "Chinelo", w: "Tênis" },
     { q: "Cell phone", a: "Celular", w: "Telefone fixo" },
@@ -68,29 +51,9 @@ const questions = [
     { q: "Holiday", a: "Feriado", w: "Fim de semana" },
     { q: "Weekend", a: "Fim de semana", w: "Feriado" },
 
-    // Intermediate / Slang (originais)
-    { q: "Where is the bathroom?", a: "Onde fica o banheiro?", w: "Onde está a cozinha?" },
-    { q: "How much is it?", a: "Quanto custa?", w: "Que horas são?" },
+    // Slang & Everyday
     { q: "Cool!", a: "Legal!", w: "Chato!" },
     { q: "What's up?", a: "E aí?", w: "E agora?" },
-    { q: "Excuse me", a: "Com licença", w: "Desculpa" },
-    { q: "I don't understand", a: "Não entendi", w: "Não quero" },
-    { q: "Can I have the bill?", a: "A conta, por favor?", w: "O menu, por favor?" },
-    { q: "Cheers!", a: "Saúde!", w: "Parabéns!" },
-    { q: "Good vibes", a: "Alto astral", w: "Baixo astral" },
-    { q: "Boyfriend", a: "Namorado", w: "Marido" },
-    { q: "Girlfriend", a: "Namorada", w: "Esposa" },
-    { q: "Breakfast", a: "Café da manhã", w: "Almoço" },
-    { q: "Lunch", a: "Almoço", w: "Jantar" },
-    { q: "Dinner", a: "Jantar", w: "Lanche" },
-    { q: "Wait a minute", a: "Espera um pouco", w: "Vamos agora" },
-    { q: "I'm hungry", a: "Estou com fome", w: "Estou com sede" },
-    { q: "It's hot", a: "Está calor", w: "Está frio" },
-    { q: "Beautiful", a: "Lindo", w: "Feio" },
-    { q: "Of course", a: "Com certeza", w: "Talvez não" },
-    { q: "Let's go!", a: "Bora!", w: "Para!" },
-
-    // Intermediate / Slang (novos - cotidiano + gíria leve)
     { q: "I'm thirsty", a: "Tô com sede", w: "Tô com sono" },
     { q: "I'm sleepy", a: "Tô com sono", w: "Tô acordado" },
     { q: "I'm tired", a: "Tô cansado", w: "Tô animado" },
@@ -100,88 +63,131 @@ const questions = [
     { q: "All good?", a: "Tudo certo?", w: "Tudo errado?" },
     { q: "Let's hang out", a: "Vamos dar um rolê", w: "Vamos trabalhar" },
     { q: "That's awesome", a: "Da hora", w: "Chato" },
-    { q: "Really?", a: "Sério mesmo?", w: "Tanto faz?" },
     { q: "I'm broke", a: "Tô sem grana", w: "Tô rico" },
     { q: "It's crowded", a: "Tá lotado", w: "Tá vazio" },
     { q: "I'm kidding", a: "Tô zoando", w: "Tô falando sério" },
-    { q: "Calm down", a: "Fica tranquilo", w: "Se desespera" },
     { q: "No way!", a: "Nem ferrando!", w: "Com certeza!" },
     { q: "So expensive", a: "Tá caro pra caramba", w: "Tá baratinho" },
     { q: "Great job", a: "Mandou bem", w: "Mandou mal" },
-    { q: "Let's get started", a: "Bora começar", w: "Bora terminar" },
     { q: "It's a mess", a: "Tá uma bagunça", w: "Tá organizado" },
-    { q: "Good vibes only", a: "Só alto astral", w: "Baixo astral" },
     { q: "Hold my spot", a: "Guarda meu lugar", w: "Pega meu lugar" },
-    { q: "Are you serious?", a: "Você tá falando sério?", w: "Você tá brincando?" },
-    { q: "Just in case", a: "Por via das dúvidas", w: "Com certeza" },
-    { q: "Take it easy", a: "Vai com calma", w: "Vai correndo" },
     { q: "Let's go already", a: "Partiu", w: "Ficou" },
-    { q: "It's weird", a: "Tá esquisito", w: "Tá perfeito" },
     { q: "I'm annoyed", a: "Tô bolado", w: "Tô feliz" },
     { q: "Chill", a: "Fica de boa", w: "Fica tenso" },
-    { q: "Too much talk", a: "Muita enrolação", w: "Direto ao ponto" },
     { q: "Crowd", a: "Muvuca", w: "Vazio" },
 
-    // Phrases (originais)
-    { q: "Nice to meet you", a: "Prazer em conhecer", w: "Até logo" },
-    { q: "I speak a little", a: "Falo um pouco", w: "Falo muito" },
-    { q: "Do you have WiFi?", a: "Tem WiFi?", w: "Tem água?" },
-    { q: "Help me", a: "Me ajuda", w: "Me deixa" },
-    { q: "Be careful", a: "Cuidado", w: "Rápido" },
-    { q: "I love Brazil", a: "Eu amo o Brasil", w: "Eu odeio o Brasil" },
-    { q: "Everything is good", a: "Tudo joia", w: "Tudo ruim" },
-    { q: "Dude/Bro", a: "Mano", w: "Senhor" },
-    { q: "Wow!", a: "Nossa!", w: "Credo!" },
-    { q: "See you later", a: "Até mais", w: "Adeus para sempre" },
-
-    // Phrases (novas - naturais, mais complexas, coloquiais)
-    { q: "Could you help me, please?", a: "Você pode me ajudar, por favor?", w: "Você pode me atrapalhar, por favor?" },
-    { q: "Where can I top up my transit card?", a: "Onde recarrego meu cartão de transporte?", w: "Onde compro carro?" },
-    { q: "Can you recommend a good place to eat?", a: "Você recomenda um lugar bom pra comer?", w: "Você recomenda não comer?" },
-    { q: "Do you accept card or only cash?", a: "Aceita cartão ou só dinheiro?", w: "Aceita cheque ou só pix?" },
-    { q: "Can you split the bill, please?", a: "Pode dividir a conta, por favor?", w: "Pode triplicar a conta?" },
-    { q: "I'm just looking, thanks", a: "Tô só dando uma olhada, valeu", w: "Quero comprar tudo" },
-    { q: "I'm running a bit late", a: "Tô chegando, mas vou me atrasar um pouco", w: "Já cheguei faz tempo" },
-    { q: "Let me know when you get here", a: "Me avisa quando chegar", w: "Não fala nada quando chegar" },
-    { q: "Do you have any discount in cash?", a: "Tem desconto no dinheiro?", w: "Tem aumento no dinheiro?" },
-    { q: "Is there a cheaper option?", a: "Tem opção mais em conta?", w: "Tem opção mais cara?" },
-    { q: "I'm starving, let's eat something", a: "Tô morrendo de fome, vamos comer alguma coisa", w: "Tô sem fome, vamos comer" },
-    { q: "It's really hot today, right?", a: "Hoje tá muito calor, né?", w: "Hoje tá nevando, né?" },
-    { q: "I didn't quite get it, can you repeat?", a: "Não peguei direito, pode repetir?", w: "Não ouvi e tá ótimo" },
+    // Phrases
+    { q: "Could you help me?", a: "Você pode me ajudar, por favor?", w: "Você pode me atrapalhar?" },
+    { q: "Do you accept card?", a: "Aceita cartão ou só dinheiro?", w: "Aceita cheque?" },
+    { q: "I'm just looking", a: "Tô só dando uma olhada, valeu", w: "Quero comprar tudo" },
+    { q: "I'm running late", a: "Tô chegando, mas vou me atrasar", w: "Já cheguei faz tempo" },
+    { q: "Any cash discount?", a: "Tem desconto no dinheiro?", w: "Tem aumento no dinheiro?" },
     { q: "I'll be right back", a: "Já volto", w: "Não volto" },
-    { q: "Let's meet at the corner bakery", a: "Vamos nos encontrar na padaria da esquina", w: "Vamos nos perder no mercado" },
-    { q: "It's not working, I think it bugged", a: "Não tá funcionando, acho que bugou", w: "Tá perfeito, só não liga" },
+    { q: "It bugged", a: "Não tá funcionando, acho que bugou", w: "Tá perfeito" },
     { q: "Send me your location", a: "Me manda a sua localização", w: "Me manda um desenho" },
-    { q: "I'm not sure, let me check", a: "Não tenho certeza, deixa eu conferir", w: "Tenho certeza sem ver" },
-    { q: "If anything, call me", a: "Qualquer coisa, me chama", w: "Qualquer coisa, me esquece" },
     { q: "Deal, see you then", a: "Fechado, até lá", w: "Aberto, até nunca" },
-    { q: "It was close, but it worked out", a: "Foi por pouco, mas deu certo", w: "Foi fácil e deu errado" },
-    { q: "Next time it's on me", a: "Na próxima eu pago", w: "Na próxima você paga em dobro" },
-    { q: "That place is always packed", a: "Aquele lugar vive lotado", w: "Aquele lugar vive vazio" },
-    { q: "The traffic is terrible today", a: "O trânsito tá horrível hoje", w: "O trânsito tá lindo hoje" },
-    { q: "I'm trying to save money this month", a: "Tô tentando economizar esse mês", w: "Tô queimando dinheiro" },
-    { q: "Do you have a plug to charge here?", a: "Tem tomada pra carregar aqui?", w: "Tem sofá pra dormir aqui?" },
-    { q: "Let's leave a bit earlier to avoid traffic", a: "Vamos sair um pouco mais cedo pra fugir do trânsito", w: "Vamos sair tarde pra pegar trânsito" },
-    { q: "It's raining a lot, take an umbrella", a: "Tá chovendo pra caramba, leva um guarda-chuva", w: "Tá sol, leva um casaco" },
-    { q: "We can split a ride app", a: "A gente pode rachar um app de corrida", w: "A gente pode correr a pé" },
-    { q: "Thanks, that helped a lot", a: "Valeu, ajudou demais", w: "Piorou tudo" },
-    { q: "Sorry, it wasn't on purpose", a: "Foi mal, não foi de propósito", w: "Foi ótimo, foi de propósito" },
-    { q: "Let me think for a minute", a: "Deixa eu pensar um minuto", w: "Não preciso pensar" },
-    { q: "I can't today, maybe tomorrow", a: "Hoje não dá, talvez amanhã", w: "Hoje dá e amanhã também não" },
-    { q: "Can you speak a bit slower?", a: "Pode falar um pouco mais devagar?", w: "Pode falar gritando?" },
-    { q: "Send it to me on WhatsApp", a: "Manda pra mim no WhatsApp", w: "Manda por fax" },
-    { q: "I'll transfer by Pix", a: "Vou te mandar por Pix", w: "Vou te mandar por cheque" },
-    { q: "Did you get the notification?", a: "Você recebeu a notificação?", w: "Você comeu a notificação?" },
-    { q: "Do you have change?", a: "Você tem troco?", w: "Você tem troca?" },
-    { q: "Is there a line?", a: "Tem fila?", w: "Tem sofá?" },
-    { q: "I'm just teasing", a: "Tô só brincando", w: "Tô xingando" },
-    { q: "Take a quick look", a: "Dá uma olhadinha rapidinho", w: "Fecha os olhos" },
-    { q: "Let's go, time's running", a: "Bora, o tempo tá correndo", w: "Para, o tempo parou" },
-    { q: "Everything's fine on my side", a: "Aqui tá tudo certo", w: "Aqui tá tudo errado" },
-    { q: "If it doesn't work, we try again", a: "Se não der certo, a gente tenta de novo", w: "Se não der certo, desiste pra sempre" },
-    { q: "Send me a voice message", a: "Me manda um áudio", w: "Me manda uma carta" },
-    { q: "I'll call you in a bit", a: "Daqui a pouco eu te ligo", w: "Nunca mais te ligo" }
+    { q: "Next time on me", a: "Na próxima eu pago", w: "Na próxima você paga" },
+    { q: "I'll transfer via Pix", a: "Vou te mandar por Pix", w: "Vou te mandar por cheque" },
+    { q: "I'm just teasing", a: "Tô só brincando", w: "Tô xingando" }
 ];
+
+// --- 2. STATE ---
+const state = {
+    currentIndex: JSON.parse(localStorage.getItem('slb_game_state'))?.index || 0,
+    score: JSON.parse(localStorage.getItem('slb_game_state'))?.score || 0
+};
+
+// --- 3. AUDIO LOGIC (TTS) ---
+function speak(text) {
+    if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const msg = new SpeechSynthesisUtterance(text);
+        msg.lang = 'pt-BR';
+        msg.rate = 0.85; // Natural Brazilian flow
+        window.speechSynthesis.speak(msg);
+    }
+}
+
+// --- 4. CORE FUNCTIONS ---
+function loadQuestion() {
+    const elements = {
+        qText: document.getElementById('question-text'),
+        options: document.getElementById('options-container'),
+        gameContainer: document.getElementById('game-container'),
+        upsell: document.getElementById('game-upsell')
+    };
+
+    if (state.currentIndex >= questions.length) {
+        elements.gameContainer.classList.add('hidden');
+        elements.upsell.classList.remove('hidden');
+        return;
+    }
+
+    const current = questions[state.currentIndex];
+    elements.qText.textContent = current.q;
+    elements.options.innerHTML = '';
+
+    const choices = [current.a, current.w].sort(() => Math.random() - 0.5);
+
+    choices.forEach(choice => {
+        const btn = document.createElement('button');
+        btn.className = 'game-btn';
+        btn.innerHTML = `<span>${choice}</span><span class="audio-icon-btn">🔊</span>`;
+        
+        btn.onclick = () => {
+            speak(choice);
+            // Pequeno delay para a pessoa ouvir antes da cor mudar
+            setTimeout(() => handleAnswer(btn, choice, current.a), 600);
+        };
+        elements.options.appendChild(btn);
+    });
+
+    updateProgress();
+}
+
+function handleAnswer(btn, selected, correct) {
+    const allBtns = document.querySelectorAll('.game-btn');
+    allBtns.forEach(b => b.disabled = true);
+
+    if (selected === correct) {
+        btn.classList.add('correct', 'pulse-audio');
+        state.score += 10;
+        if(navigator.vibrate) navigator.vibrate(50);
+    } else {
+        btn.classList.add('wrong');
+        allBtns.forEach(b => {
+            if (b.textContent.includes(correct)) b.classList.add('correct');
+        });
+        if(navigator.vibrate) navigator.vibrate([50, 50, 50]);
+    }
+
+    state.currentIndex++;
+    localStorage.setItem('slb_game_state', JSON.stringify({index: state.currentIndex, score: state.score}));
+
+    setTimeout(() => {
+        loadQuestion();
+    }, 1500);
+}
+
+function updateProgress() {
+    const fill = document.getElementById('progress-fill');
+    const score = document.getElementById('score-display');
+    fill.style.width = `${(state.currentIndex / questions.length) * 100}%`;
+    score.textContent = `Score: ${state.score}`;
+}
+
+// --- 5. INITIALIZATION ---
+document.addEventListener('DOMContentLoaded', () => {
+    // Theme, Streak and PWA logic remain the same as previous response
+    loadQuestion();
+    
+    // Streak Logic
+    const streakEl = document.getElementById('streak-counter');
+    const start = localStorage.getItem('slb_start') || new Date().toISOString();
+    localStorage.setItem('slb_start', start);
+    const days = Math.floor((new Date() - new Date(start)) / 86400000) + 1;
+    streakEl.textContent = `Day ${days}`;
+});
 
 
 // --- 2. STATE MANAGEMENT ---
