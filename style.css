@@ -178,14 +178,16 @@ h1 {
 .options-grid {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 20px; /* Aumentado de 12px para 20px ou 24px */
+    margin-top: 10px; /* Adiciona um respiro em relação à pergunta */
 }
 
 /* A "Linha" que contém o ícone de áudio e o botão de texto */
 .option-row {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 15px; /* Espaço entre o ícone de áudio e o botão de texto */
+    margin-bottom: 5px; /* Espaço extra de segurança */
 }
 
 /* Botão de Áudio (Círculo) */
@@ -213,15 +215,15 @@ h1 {
 
 /* Botão de Resposta (Ajustado para Flex) */
 .game-btn {
-    flex-grow: 1; /* Ocupa o resto do espaço da linha */
+    flex-grow: 1;
     background: rgba(255,255,255,0.05);
     border: 2px solid transparent;
     color: var(--text-main);
-    padding: 15px 20px;
-    border-radius: 12px;
-    font-size: 1rem;
+    padding: 18px 25px; /* Aumentei o padding para o botão ficar mais robusto */
+    border-radius: 14px;
+    font-size: 1.05rem;
     font-weight: 600;
-    text-align: left; /* Texto alinhado à esquerda fica mais profissional aqui */
+    text-align: left;
     cursor: pointer;
     transition: all 0.2s;
 }
